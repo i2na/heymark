@@ -3,8 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Hey, Mark!</title>
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        <title>Loading...</title>
+        <link rel="icon" type="image/png" href="/custom/favicon.png" />
+        <script>
+            (function() {
+                fetch('/custom/config.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        document.title = data.title;
+                    })
+            })();
+        </script>
         <link
             rel="stylesheet"
             as="style"

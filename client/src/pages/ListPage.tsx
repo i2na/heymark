@@ -12,6 +12,22 @@ export function ListPage() {
     const [user, setUser] = useState(getUserInfo());
     const [files, setFiles] = useState<MarkdownFile[]>([]);
     const [loading, setLoading] = useState(true);
+    const [brandName, setBrandName] = useState("@heymark");
+
+    useEffect(() => {
+        const loadConfig = async () => {
+            try {
+                const response = await fetch("/custom/config.json");
+                const config = await response.json();
+                if (config.brandName) {
+                    setBrandName(config.brandName);
+                }
+            } catch (error) {
+                // 기본값 유지
+            }
+        };
+        loadConfig();
+    }, []);
 
     useEffect(() => {
         const checkAuth = () => {
@@ -59,7 +75,7 @@ export function ListPage() {
         <div className={styles.listPage}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>@heymark</h1>
+                    <h1 className={styles.title}>{brandName}</h1>
 
                     {authenticated && user ? (
                         <div className={styles.userInfo}>

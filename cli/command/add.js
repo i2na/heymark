@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import chalk from "chalk";
 import { execSync } from "child_process";
-import { getConfig } from "../config.js";
+import { getConfig } from "../util/config.js";
 import { DEFAULTS, GIT, FILE } from "../../constants.js";
 
 function createFrontmatter(visibility, createdAt) {

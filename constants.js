@@ -7,11 +7,9 @@ export const GITHUB = {
 
 export const ENV_VARS = {
     POSTS_GITHUB_TOKEN: process.env.POSTS_GITHUB_TOKEN,
-    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_ID: process.env.VITE_GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-    BASE_URL: process.env.BASE_URL,
-    VITE_GOOGLE_CLIENT_ID: process.env.VITE_GOOGLE_CLIENT_ID,
-    VITE_BASE_URL: process.env.VITE_BASE_URL,
+    BASE_URL: process.env.VITE_BASE_URL,
 };
 
 export const URLS = {
@@ -31,10 +29,4 @@ export const GIT = {
 
 export const FILE = {
     MD_EXTENSION: ".md",
-    CONFIG_FILE_NAME: "~/.heymark-config.json",
-};
-
-export const FRONTMATTER = {
-    VISIBILITY_PUBLIC: "public",
-    VISIBILITY_PRIVATE: "private",
 };
