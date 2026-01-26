@@ -83,7 +83,7 @@ export default async function addCommand(filepath, options) {
                     cwd: config.postsRepoPath,
                     stdio: "pipe",
                 });
-                execSync("git push", { cwd: config.postsRepoPath, stdio: "inherit" });
+                execSync("git push -u origin main", { cwd: config.postsRepoPath, stdio: "inherit" });
                 console.log(chalk.green("✓ Committed & pushed to private repo"));
             }
         } catch (error) {
