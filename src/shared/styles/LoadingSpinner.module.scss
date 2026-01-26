@@ -1,5 +1,5 @@
-@use "./variables" as *;
-@use "./mixins" as *;
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
 
 .spinner {
     @include loading-spinner(1rem, $gh-fg-muted);
