@@ -33,35 +33,39 @@ yarn install
 node cli/setup.js
 ```
 
-- **Prompts** — CLI name (default: `heymark`), posts repo URL, local folder path (absolute).
-- **Creates** — `~/.heymark-cli.json`:
+- **Prompts** — Profile name (e.g. `post`, `blog`), posts repo URL, local folder path (absolute).
+- **Creates/updates** — `~/.heymark-cli/config.json` (multi-profile):
 
     ```json
     {
-        "cliName": "heymark",
-        "postsGitRemote": "https://github.com/you/posts-archive.git",
-        "postsRepoPath": "/Users/you/posts-archive"
+        "profiles": {
+            "post": {
+                "postsGitRemote": "https://github.com/you/posts-archive.git",
+                "postsRepoPath": "/Users/you/posts-archive"
+            },
+            "blog": {
+                "postsGitRemote": "https://github.com/you/blog-posts.git",
+                "postsRepoPath": "/Users/you/blog-posts"
+            }
+        }
     }
     ```
 
-    - `postsGitRemote` — Git URL of the private repo that stores markdown posts.
-    - `postsRepoPath` — Absolute path to the cloned repo on your machine.
-
-- **Updates** — `package.json` `bin` and `name` for `yarn link`.
+    - Run `node cli/setup.js` again to add another profile. Setup adds profile bin to PATH automatically.
 
 ### 2. Link and use
 
 ```bash
 yarn link
-heymark call   # test that CLI works
+post call   # test
 ```
 
 ## Commands
 
 ```bash
-heymark call              # Copy prompt/copy.md to clipboard
-heymark add <filepath>    # Add doc to posts repo (frontmatter + git). Defaults: visibility=private, createdAt=now (KST). -d, --delete removes original
-heymark open              # Open posts repo in Cursor
+post call              # Copy prompt to clipboard
+post add <filepath>    # Add doc to posts repo. -d, --delete removes original
+post open              # Open posts repo in Cursor
 ```
 
 ## Troubleshooting
