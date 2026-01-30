@@ -28,11 +28,13 @@ async function setup() {
             type: "input",
             name: "postsGitRemote",
             message: "Posts Git repository URL:",
+            default: `https://github.com/${process.env.POSTS_REPO_OWNER || "OWNER"}/${process.env.POSTS_REPO_NAME || "REPO_NAME"}.git`,
         },
         {
             type: "input",
             name: "postsRepoPath",
             message: "Posts folder (local absolute path):",
+            default: "C:\\Users\\USER\\posts-archive",
             validate: (input) => {
                 if (!input || input.trim() === "") {
                     return "Posts folder path is required";
